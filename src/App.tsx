@@ -208,8 +208,8 @@ function App() {
                                 Hello, I'm <span className="text-blue-600 dark:text-blue-400">Chris Tsang</span>
                             </h1>
                             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                                Back End Developer passionate about building engaging, feature-rich experiences and
-                                making solutions that makes a difference!
+                                A Back End Developer from Hong Kong passionate about building engaging,
+                                feature-rich experiences and making solutions that makes a difference!
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')}>
