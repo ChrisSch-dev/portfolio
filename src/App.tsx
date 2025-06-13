@@ -245,7 +245,7 @@ function App() {
                                     pursuing an app-development journey. Nowadays I mostly stick with Rust/Kotlin due to
                                     work reasons, outside of work, I often play around with languages such as
                                     Javascript, Typescript and Python for my personal projects. Currently, I am learning
-                                    C and C++ to expand my skill set. .
+                                    C and C++ to expand my skill set.
                                 </p>
                                 <p className="text-muted-foreground mb-6">
                                     As of recently, I have taken a step back in programming outside of work to try to
@@ -253,7 +253,7 @@ function App() {
                                     the tech industry will always have a special place in my heart!
                                 </p>
                                 <div className="flex flex-wrap gap-2">
-                                    {['Problem Solving', 'Team Leadership', 'Agile Development', 'User Experience'].map((trait) => (
+                                    {['Problem Solving', 'Team Leadership', 'Agile Development', 'Fast Learner'].map((trait) => (
                                         <Badge key={trait} variant="secondary">{trait}</Badge>
                                     ))}
                                 </div>
