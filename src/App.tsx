@@ -411,7 +411,7 @@ function App() {
                 <footer className="py-8 border-t bg-muted/50">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <p className="text-muted-foreground">
-                            © 2025 Chris Tsang. Built with React, TypeScript, and Tailwind CSS.
+                            © 2025 Chris Tsang | Built with React, TypeScript, and Tailwind CSS | <a href="https://github.com/ChrisSch-dev/portfolio">Source Code</a>
                         </p>
                     </div>
                 </footer>
