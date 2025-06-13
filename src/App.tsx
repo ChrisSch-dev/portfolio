@@ -66,7 +66,7 @@ function App() {
             period: "2020 ~ 2024 July",
             title: "Founder",
             company: "EternalGaius Ltd.",
-            description: "EternalGaius is a multi-purpose discord bot which is now shut down, and has been merged with the discord bot Galaxies.",
+            description: "EternalGaius is a multi-purpose discord bot which has now shut down due to internal reasons, and has been merged with the discord bot Galaxies.",
             technologies: ["Discord.js", "PostgreSQL", "Redis", "NodeJS", "Javascript"]
         },
         {
