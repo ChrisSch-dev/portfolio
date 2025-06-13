@@ -7,7 +7,7 @@ import {ExternalLink, Github, Mail, Menu, Moon, Sun} from 'lucide-react'
 
 function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const [darkMode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(true)
 
     useEffect(() => {
         if (darkMode) {
