@@ -199,10 +199,11 @@ function App() {
                 <section id="home" className="pt-16 min-h-screen flex items-center">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                         <div className="text-center">
-                            <div
-                                className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-4xl font-bold text-white">
-                                CT
-                            </div>
+                            <img
+                                src="https://images-ext-1.discordapp.net/external/iyOUlPLcHNFdNYepEmEkTZ3Q1rwupCJyicCOG11kAVE/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/592663451978039298/a_3eb974f350dac86106ea06b0662d2f01.gif?width=386&height=386"
+                                alt="Chris Tsang Profile"
+                                className="w-32 h-32 mx-auto mb-8 rounded-full object-cover shadow-lg ring-4 ring-blue-500/20"
+                            />
                             <h1 className="text-4xl md:text-6xl font-bold mb-6">
                                 Hello, I'm <span className="text-blue-600 dark:text-blue-400">Chris Tsang</span>
                             </h1>
@@ -231,7 +232,7 @@ function App() {
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <img
-                                    src="https://images-ext-1.discordapp.net/external/iyOUlPLcHNFdNYepEmEkTZ3Q1rwupCJyicCOG11kAVE/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/592663451978039298/a_3eb974f350dac86106ea06b0662d2f01.gif?width=386&height=386"
+                                    src="https://media.discordapp.net/attachments/1382680041132920872/1383134462396596244/IMG_20250508_125803_837.webp?ex=684dafd9&is=684c5e59&hm=e3617a3b83e49d49aaa826e1a33e9970e08d455dda600021c8035b82c56330c5&=&format=webp&width=921&height=921"
                                     alt="Profile"
                                     className="rounded-lg shadow-lg w-full max-w-md mx-auto"
                                 />
