@@ -268,7 +268,7 @@ function App() {
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience Timeline</h2>
                             <p className="text-muted-foreground max-w-2xl mx-auto">
-                                My professional journey and the experiences that have shaped my career in web
+                                My professional journey and the experiences that have shaped my career in back-end
                                 development.
                             </p>
                         </div>
