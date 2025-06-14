@@ -1,0 +1,32 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.particle-glow {
+    filter: drop-shadow(0 0 2px currentColor);
+}
+
+/* Ensure smooth transitions */
+.interactive-bg-canvas {
+    transition: opacity 0.3s ease-in-out;
+}

@@ -4,6 +4,10 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {Badge} from '@/components/ui/badge'
 import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
 import {ExternalLink, Github, Instagram, Mail, Menu, Moon, Sun, Twitter} from 'lucide-react'
+import { skills, timeline, projects } from '@/assets/experiences'
+import { navItems } from '@/components/menu/navItems.ts'
+import { DiscordIcon } from "@/assets/icons/discord.tsx";
+import InteractiveBackground from '@/components/background/InteractiveBackground'
 
 function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -72,197 +76,13 @@ function App() {
         setIsMenuOpen(false)
     }
 
-    const DiscordIcon = ({ className }: { className?: string }) => (
-        <svg
-            className={className}
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0189 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
-        </svg>
-    )
-
-    const navItems = [
-        { name: 'Home', id: 'home' },
-        { name: 'About', id: 'about' },
-        { name: 'Experience', id: 'timeline' },
-        { name: 'Skills', id: 'skills' },
-        { name: 'Contact', id: 'contact' }
-    ]
-
-    const projects = [
-        {
-            name: 'EternalGaius Discord Bot',
-            type: 'bot',
-            status: 'archived',
-            period: '2020-2024',
-            description: 'EternalGaius is a multi-purpose discord bot which has now shut down due to internal reasons, and has been merged with the discord bot Galaxies.'
-        },
-        {
-            name: 'Galaxies Discord Bot',
-            type: 'bot',
-            status: 'archived',
-            period: '2021-2022',
-            description: 'All-in-one multipurpose Discord bot with comprehensive server management'
-        },
-        {
-            name: "Epoch Studio - Galaxies",
-            type: "bot",
-            status: 'active',
-            period: "2024 August ~ Present",
-            description: "A new managing team is now in-charge of Galaxies. With a new direction and new goals in mind."
-        },
-        {
-            name: 'Celendi Discord Bot',
-            type: 'bot',
-            status: 'archived',
-            period: '2021',
-            description: 'Feature-rich Discord bot with moderation and entertainment commands'
-        },
-        {
-            name: 'PrismaCord API Wrapper',
-            type: 'library',
-            status: 'archived',
-            period: '2022-2022',
-            description: 'JavaScript/TypeScript Discord API wrapper alternative to Discord.js'
-        },
-        {
-            name: 'Church Schedule Management App',
-            type: 'web-app',
-            status: 'completed',
-            period: '2024-2024',
-            description: 'Custom scheduling app to handle to keep track of all duty schedule within the church.'
-        },
-        {
-            name: 'Portfolio Website',
-            type: 'web-app',
-            status: 'active',
-            period: '2025',
-            description: 'Personal portfolio showcasing projects and professional experience. You are looking at it now!'
-        },
-        {
-            name: 'Freelance Projects',
-            type: 'various',
-            status: 'completed',
-            period: '2020-2021',
-            description: '300+ commissioned projects including websites and Discord bots'
-        }
-    ]
-
-    const timeline = [
-        {
-            period: "2020 - 2021",
-            title: "Freelancer",
-            company: "Self-Employed",
-            description: "300+ commissions received during this period, projects ranging from websites, discord bots etc.",
-            technologies: ["Javascript", "Typescript", "NodeJS", "HTML5", "CSS", "Boostrap", "Next.js", "discord.js"]
-        },
-        {
-            period: "2021 ~ 2021",
-            title: "Bot Developer",
-            company: "Celendi",
-            description: "Celendi is a multi-functional discord bot designed to be the only bot you need in your server, containing a wide selection of commands from fun to moderation, we have it all!",
-            technologies: ["Discord.js", "Javascript", "MongoDB", "NodeJS"]
-        },
-        {
-            period: "2021 ~ 2022",
-            title: "Bot Developer",
-            company: "Galaxies Ltd.",
-            description: "Galaxies - The all-in-one multipurpose discord bot at your disposal. Invite me today to freshen up your Discord Experience!",
-            technologies: ["Discord.js", "Javascript", "PostgreSQL", "Redis", "NodeJS"]
-        },
-        {
-            period: "2022 ~ 2022",
-            title: "Maintainer/Contributor",
-            company: "PrismaCord",
-            description: "Me and a couple of my friends started on a project called PrismaCord. Which is a Discord API Wrapper for Javascript and Typescript, since we hated how Discord.js worked behind the scenes in terms of their development.",
-            technologies: ["Javascript", "Typescript", "NodeJS"]
-        },
-        {
-            period: "2020 ~ 2024 July",
-            title: "Founder",
-            company: "EternalGaius Ltd.",
-            description: "EternalGaius is a multi-purpose discord bot which has now shut down due to internal reasons, and has been merged with the discord bot Galaxies.",
-            technologies: ["Discord.js", "PostgreSQL", "Redis", "NodeJS", "Javascript"]
-        },
-        {
-            period: "2024 January ~ 2025 March",
-            title: "Information and Communication Technology (ICT.) Department Supervisor",
-            company: "The Church of Christ in China, Kei Pun Church Ltd.",
-            description: "During my stay, I was in-charged of the ICT Department, managing the daily operation of the department, and facilitating manpower and tech support in the Church.",
-            technologies: ["Rust", "Kotlin", "PostgreSQL", "MonogDB"]
-        },
-        {
-            period: "2024 August ~ 2025 June",
-            title: "Lead Developer, System Administrator - Galaxies Branch",
-            company: "Epoch Studio Ltd.",
-            description: "Galaxies - The all-in-one multipurpose discord bot at your disposal. Invite me today to freshen up your Discord Experience!",
-            technologies: ["Discord.js", "PostgreSQL", "Redis", "NodeJS", "Javascript", "Message Broker"]
-        }
-    ]
-
-    const skills = [
-        {
-            category: "Frontend Development",
-            icon: "🎨",
-            technologies: [
-                { name: "Javascript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-                { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-                { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-                { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-                { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-                { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-                { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-            ]
-        },
-        {
-            category: "Backend Development",
-            icon: "⚙️",
-            technologies: [
-                { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-                { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-                { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-                { name: "Kotlin", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" },
-                { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-                { name: "Rust", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" },
-                { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
-                { name: "C++", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" }
-            ]
-        },
-        {
-            category: "Database & Cloud",
-            icon: "🗄️",
-            technologies: [
-                { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-                { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-                { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-                { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-                { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-                { name: "Heroku", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" }
-            ]
-        },
-        {
-            category: "Tools & DevOps",
-            icon: "🛠️",
-            technologies: [
-                { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-                { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-                { name: "Vite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" },
-                { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-                { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-                { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" }
-            ]
-        }
-    ]
-
     return (
         <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
-            <div className="bg-background text-foreground">
+            <div className="bg-background text-foreground relative">
+                <InteractiveBackground darkMode={darkMode} />
                 {/* Navigation */}
-                <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b z-50">
+                <nav className="fixed top-0 left-0 right-0 w-full bg-background/80 backdrop-blur-md border-b z-50"
+                     style={{ position: 'fixed' }}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex justify-between items-center h-16">
                             <div className="font-bold text-xl">ChrisSch.dv</div>
@@ -316,7 +136,7 @@ function App() {
                 </nav>
 
                 {/* Hero Section */}
-                <section id="home" className="pt-16 min-h-screen flex items-center">
+                <section id="home" className="pt-16 min-h-screen flex items-center relative z-10">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                         <div className="text-center">
                             <img
@@ -363,7 +183,7 @@ function App() {
                 </section>
 
                 {/* About Section */}
-                <section id="about" className="py-20 bg-muted/50" ref={aboutRef}>
+                <section id="about" className="py-20 bg-muted/50 relative z-10" ref={aboutRef}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
@@ -378,9 +198,9 @@ function App() {
                                     {/* Terminal Header */}
                                     <div className="bg-gray-800 px-4 py-3 flex items-center gap-2">
                                         <div className="flex gap-2">
-                                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                                            <div className="w-3 h-3 rounded-full bg-red-500" />
+                                            <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                                            <div className="w-3 h-3 rounded-full bg-green-500" />
                                         </div>
                                         <div className="text-gray-400 text-sm ml-4">terminal</div>
                                     </div>
@@ -463,7 +283,7 @@ function App() {
                 </section>
 
                 {/* Timeline Section */}
-                <section id="timeline" className="py-20">
+                <section id="timeline" className="py-20 relative z-10">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience Timeline</h2>
@@ -529,7 +349,7 @@ function App() {
                 </section>
 
                 {/* Skills Section */}
-                <section id="skills" className="py-20 bg-muted/50">
+                <section id="skills" className="py-20 bg-muted/50 relative z-10">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
@@ -574,7 +394,7 @@ function App() {
                 </section>
 
                 {/* Contact Section */}
-                <section id="contact" className="py-20">
+                <section id="contact" className="py-20 relative z-10">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
@@ -626,7 +446,7 @@ function App() {
                 </section>
 
                 {/* Footer */}
-                <footer className="py-8 border-t bg-muted/50">
+                <footer className="py-8 border-t bg-muted/50 relative z-10">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <p className="text-muted-foreground">
                             © 2025 Chris Tsang | Built with React, TypeScript, and Tailwind CSS | <a href="https://github.com/ChrisSch-dev/portfolio">Source Code</a>
