@@ -307,7 +307,7 @@ function App() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                         <div className="text-center">
                             <img
-                                src="https://images-ext-1.discordapp.net/external/iyOUlPLcHNFdNYepEmEkTZ3Q1rwupCJyicCOG11kAVE/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/592663451978039298/a_3eb974f350dac86106ea06b0662d2f01.gif?width=386&height=386"
+                                src="/assets/christsang.jpg"
                                 alt="Chris Tsang Profile"
                                 className="w-32 h-32 mx-auto mb-8 rounded-full object-cover shadow-lg ring-4 ring-blue-500/20"
                             />
@@ -321,6 +321,28 @@ function App() {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')}>
                                     Get In Touch
+                                </Button>
+                                <Button size="lg" asChild>
+                                    <a
+                                        href="/assets/chris-tsang-resume.html"
+                                        download="Chris-Tsang-Resume.pdf"
+                                        className="flex items-center gap-2"
+                                    >
+                                        <svg
+                                            className="h-4 w-4"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                            />
+                                        </svg>
+                                        Download Resume
+                                    </a>
                                 </Button>
                             </div>
                         </div>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Tsang - Backend Developer Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .resume {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .header .location {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+            font-weight: 600;
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .company {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .period {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .description {
+            margin: 15px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: white;
+            color: #495057;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border: 1px solid #dee2e6;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            position: relative;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .project-status {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-completed {
+            background: #cce7ff;
+            color: #004085;
+        }
+
+        .status-archived {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .project-period {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        .traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .trait-tag {
+            background: #667eea;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .contact-info {
+                gap: 15px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .section {
+                margin-bottom: 30px;
+            }
+
+            .experience-item {
+                margin-bottom: 20px;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="resume">
+    <div class="header">
+        <h1>Chris Tsang</h1>
+        <div class="title">Backend Developer</div>
+        <div class="location">Hong Kong</div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <span>Contact via Portfolio</span>
+            </div>
+            <div class="contact-item">
+                <span>🐙</span>
+                <span>github.com/ChrisSch-dev</span>
+            </div>
+            <div class="contact-item">
+                <span>🌐</span>
+                <span>ChrisSch.dv</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <div class="summary">
+                Passionate Backend Developer from Hong Kong with 5+ years of programming experience. Started with JavaScript but quickly transitioned to Rust and Kotlin for app development. Experienced in building engaging, feature-rich applications and solutions that make a difference. Strong background in Discord bot development, API wrappers, and full-stack web applications. Currently exploring C and C++ to expand technical expertise while maintaining a special connection to the tech industry.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Lead Developer, System Administrator - Galaxies Branch</div>
+                        <div class="company">Epoch Studio Ltd.</div>
+                    </div>
+                    <div class="period">August 2024 ~ June 2025</div>
+                </div>
+                <div class="description">
+                    Leading development of Galaxies - an all-in-one multipurpose Discord bot. Responsible for system architecture, development workflows, and team coordination to deliver a comprehensive Discord experience.
+                </div>
+                <div class="technologies">
+                    <span class="tech-tag">Discord.js</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Message Broker</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">ICT Department Supervisor</div>
+                        <div class="company">The Church of Christ in China, Kei Pun Church Ltd.</div>
+                    </div>
+                    <div class="period">January 2024 ~ March 2025</div>
+                </div>
+                <div class="description">
+                    Managed daily operations of the ICT Department, facilitating manpower allocation and providing comprehensive tech support for church operations. Oversaw technology infrastructure and system implementations.
+                </div>
+                <div class="technologies">
+                    <span class="tech-tag">Rust</span>
+                    <span class="tech-tag">Kotlin</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Founder</div>
+                        <div class="company">EternalGaius Ltd.</div>
+                    </div>
+                    <div class="period">2020 ~ July 2024</div>
+                </div>
+                <div class="description">
+                    Founded and led development of EternalGaius, a multi-purpose Discord bot serving thousands of users. Successfully managed the product lifecycle from conception to merger with Galaxies. Built scalable infrastructure and managed a growing user base.
+                </div>
+                <div class="technologies">
+                    <span class="tech-tag">Discord.js</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Maintainer/Contributor</div>
+                        <div class="company">PrismaCord</div>
+                    </div>
+                    <div class="period">2022</div>
+                </div>
+                <div class="description">
+                    Co-created PrismaCord, a Discord API wrapper for JavaScript and TypeScript, as an alternative to Discord.js. Focused on improving developer experience and backend architecture design.
+                </div>
+                <div class="technologies">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Node.js</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Bot Developer</div>
+                        <div class="company">Galaxies Ltd.</div>
+                    </div>
+                    <div class="period">2021 ~ 2022</div>
+                </div>
+                <div class="description">
+                    Developed comprehensive features for Galaxies Discord bot, focusing on server management capabilities and user experience enhancements.
+                </div>
+                <div class="technologies">
+                    <span class="tech-tag">Discord.js</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Node.js</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Freelance Developer</div>
+                        <div class="company">Self-Employed</div>
+                    </div>
+                    <div class="period">2020 ~ 2021</div>
+                </div>
+                <div class="description">
+                    Completed 300+ commissioned projects including websites, Discord bots, and various web applications. Delivered high-quality solutions across diverse client requirements and technologies.
+                </div>
+                <div class="technologies">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Discord.js</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🎨 Frontend Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Next.js</span>
+                        <span class="skill-item">Tailwind CSS</span>
+                        <span class="skill-item">HTML5</span>
+                        <span class="skill-item">CSS3</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>⚙️ Backend Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Rust</span>
+                        <span class="skill-item">Kotlin</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">C</span>
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">Express.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🗄️ Database & Cloud</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">Redis</span>
+                        <span class="skill-item">MySQL</span>
+                        <span class="skill-item">Google Cloud</span>
+                        <span class="skill-item">Heroku</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🛠️ Tools & DevOps</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">GitHub Actions</span>
+                        <span class="skill-item">Linux</span>
+                        <span class="skill-item">Nginx</span>
+                        <span class="skill-item">Vite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Epoch Studio - Galaxies</div>
+                        <div class="project-status status-active">Active</div>
+                    </div>
+                    <div class="project-period">August 2024 ~ Present</div>
+                    <div class="project-description">
+                        Leading a new managing team for Galaxies with fresh direction and goals. Implementing comprehensive Discord bot functionality with modern architecture.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Portfolio Website</div>
+                        <div class="project-status status-active">Active</div>
+                    </div>
+                    <div class="project-period">2025</div>
+                    <div class="project-description">
+                        Personal portfolio showcasing projects and professional experience with modern React and TypeScript implementation.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Church Schedule Management App</div>
+                        <div class="project-status status-completed">Completed</div>
+                    </div>
+                    <div class="project-period">2024</div>
+                    <div class="project-description">
+                        Custom scheduling application for managing duty schedules within church operations, improving organizational efficiency.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">PrismaCord API Wrapper</div>
+                        <div class="project-status status-archived">Archived</div>
+                    </div>
+                    <div class="project-period">2022</div>
+                    <div class="project-description">
+                        JavaScript/TypeScript Discord API wrapper alternative to Discord.js, focusing on improved developer experience and architecture.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">EternalGaius Discord Bot</div>
+                        <div class="project-status status-archived">Archived</div>
+                    </div>
+                    <div class="project-period">2020-2024</div>
+                    <div class="project-description">
+                        Multi-purpose Discord bot serving thousands of users. Successfully managed complete product lifecycle before strategic merger with Galaxies.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Freelance Projects</div>
+                        <div class="project-status status-completed">Completed</div>
+                    </div>
+                    <div class="project-period">2020-2021</div>
+                    <div class="project-description">
+                        300+ commissioned projects including websites and Discord bots, delivering diverse solutions across multiple technologies and client requirements.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Core Competencies</h2>
+            <div class="traits">
+                <span class="trait-tag">Problem Solving</span>
+                <span class="trait-tag">Team Leadership</span>
+                <span class="trait-tag">Agile Development</span>
+                <span class="trait-tag">Fast Learner</span>
+                <span class="trait-tag">System Architecture</span>
+                <span class="trait-tag">API Development</span>
+                <span class="trait-tag">Database Design</span>
+                <span class="trait-tag">Project Management</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
