@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import {Button} from '@/components/ui/button'
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card'
 import {Badge} from '@/components/ui/badge'
@@ -8,6 +8,10 @@ import {ExternalLink, Github, Mail, Menu, Moon, Sun} from 'lucide-react'
 function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [darkMode, setDarkMode] = useState(true)
+    const [terminalVisible, setTerminalVisible] = useState(false)
+    const [typedText, setTypedText] = useState('')
+    const [showProjects, setShowProjects] = useState(false)
+    const aboutRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (darkMode) {
@@ -16,6 +20,49 @@ function App() {
             document.documentElement.classList.remove('dark')
         }
     }, [darkMode])
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !terminalVisible) {
+                    setTerminalVisible(true)
+                }
+            },
+            {
+                threshold: 0.3,
+            }
+        )
+
+        if (aboutRef.current) {
+            observer.observe(aboutRef.current)
+        }
+
+        return () => {
+            if (aboutRef.current) {
+                observer.unobserve(aboutRef.current)
+            }
+        }
+    }, [terminalVisible])
+
+    useEffect(() => {
+        if (terminalVisible) {
+            const command = 'projects ls'
+            let currentIndex = 0
+
+            const typeInterval = setInterval(() => {
+                if (currentIndex <= command.length) {
+                    setTypedText(command.substring(0, currentIndex))
+                    currentIndex++
+                } else {
+                    clearInterval(typeInterval)
+                    // Show projects after typing is complete
+                    setTimeout(() => setShowProjects(true), 500)
+                }
+            }, 100)
+
+            return () => clearInterval(typeInterval)
+        }
+    }, [terminalVisible])
 
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId)
@@ -31,6 +78,65 @@ function App() {
         { name: 'Experience', id: 'timeline' },
         { name: 'Skills', id: 'skills' },
         { name: 'Contact', id: 'contact' }
+    ]
+
+    const projects = [
+        {
+            name: 'EternalGaius Discord Bot',
+            type: 'bot',
+            status: 'archived',
+            period: '2020-2024',
+            description: 'EternalGaius is a multi-purpose discord bot which has now shut down due to internal reasons, and has been merged with the discord bot Galaxies.'
+        },
+        {
+            name: 'Galaxies Discord Bot',
+            type: 'bot',
+            status: 'archived',
+            period: '2021-2022',
+            description: 'All-in-one multipurpose Discord bot with comprehensive server management'
+        },
+        {
+            name: "Epoch Studio - Galaxies",
+            type: "bot",
+            status: 'active',
+            period: "2024 August ~ Present",
+            description: "A new managing team is now in-charge of Galaxies. With a new direction and new goals in mind."
+        },
+        {
+            name: 'Celendi Discord Bot',
+            type: 'bot',
+            status: 'archived',
+            period: '2021',
+            description: 'Feature-rich Discord bot with moderation and entertainment commands'
+        },
+        {
+            name: 'PrismaCord API Wrapper',
+            type: 'library',
+            status: 'archived',
+            period: '2022-2022',
+            description: 'JavaScript/TypeScript Discord API wrapper alternative to Discord.js'
+        },
+        {
+            name: 'Church Schedule Management App',
+            type: 'web-app',
+            status: 'completed',
+            period: '2024-2024',
+            description: 'Custom scheduling app to handle to keep track of all duty schedule within the church.'
+        },
+        {
+            name: 'Portfolio Website',
+            type: 'web-app',
+            status: 'active',
+            period: '2025',
+            description: 'Personal portfolio showcasing projects and professional experience. You are looking at it now!'
+        },
+        {
+            name: 'Freelance Projects',
+            type: 'various',
+            status: 'completed',
+            period: '2020-2021',
+            description: '300+ commissioned projects including websites and Discord bots'
+        }
     ]
 
     const timeline = [
@@ -222,7 +328,7 @@ function App() {
                 </section>
 
                 {/* About Section */}
-                <section id="about" className="py-20 bg-muted/50">
+                <section id="about" className="py-20 bg-muted/50" ref={aboutRef}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
@@ -232,11 +338,69 @@ function App() {
                         </div>
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
-                                <img
-                                    src="https://media.discordapp.net/attachments/1382680041132920872/1383134462396596244/IMG_20250508_125803_837.webp?ex=684dafd9&is=684c5e59&hm=e3617a3b83e49d49aaa826e1a33e9970e08d455dda600021c8035b82c56330c5&=&format=webp&width=921&height=921"
-                                    alt="Profile"
-                                    className="rounded-lg shadow-lg w-full max-w-md mx-auto"
-                                />
+                                {/* Terminal Box */}
+                                <div className="bg-gray-900 rounded-lg shadow-xl overflow-hidden border border-gray-700 max-w-md mx-auto">
+                                    {/* Terminal Header */}
+                                    <div className="bg-gray-800 px-4 py-3 flex items-center gap-2">
+                                        <div className="flex gap-2">
+                                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                                        </div>
+                                        <div className="text-gray-400 text-sm ml-4">terminal</div>
+                                    </div>
+
+                                    {/* Terminal Content */}
+                                    <div className="p-4 font-mono text-sm h-96 overflow-y-auto">
+                                        <div className="text-green-400 mb-2">
+                                            chris@portfolio:~$ <span className="text-white">{typedText}</span>
+                                            {!showProjects && <span className="animate-pulse text-white">|</span>}
+                                        </div>
+
+                                        {showProjects && (
+                                            <div className="mt-4 space-y-2">
+                                                <div className="text-gray-400 mb-3">
+                                                    Found {projects.length} projects:
+                                                </div>
+                                                {projects.map((project, index) => (
+                                                    <div
+                                                        key={project.name}
+                                                        className="border-l-2 border-gray-600 pl-3 mb-3"
+                                                        style={{
+                                                            animationDelay: `${index * 200}ms`,
+                                                            animation: 'fadeInUp 0.5s ease-out forwards',
+                                                            opacity: 0
+                                                        }}
+                                                    >
+                                                        <div className="flex items-center gap-2 mb-1">
+                                                            <span className={`w-2 h-2 rounded-full ${
+                                                                project.status === 'active' ? 'bg-green-400' :
+                                                                    project.status === 'completed' ? 'bg-blue-400' :
+                                                                        'bg-gray-500'
+                                                            }`}></span>
+                                                            <span className="text-blue-300 text-xs uppercase">{project.type}</span>
+                                                            <span className="text-gray-400 text-xs">{project.period}</span>
+                                                        </div>
+                                                        <div className="text-white font-medium">{project.name}</div>
+                                                        <div className="text-gray-400 text-xs mt-1 leading-relaxed">
+                                                            {project.description}
+                                                        </div>
+                                                        <div className={`text-xs px-2 py-1 rounded mt-2 inline-block ${
+                                                            project.status === 'active' ? 'bg-green-900 text-green-300' :
+                                                                project.status === 'completed' ? 'bg-blue-900 text-blue-300' :
+                                                                    'bg-gray-700 text-gray-400'
+                                                        }`}>
+                                                            {project.status}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                                <div className="mt-4 text-gray-400">
+                                                    <div className="mt-2">chris@portfolio:~$ <span className="animate-pulse text-white">|</span></div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
@@ -329,7 +493,6 @@ function App() {
                     </div>
                 </section>
 
-                {/* Skills Section */}
                 {/* Skills Section */}
                 <section id="skills" className="py-20 bg-muted/50">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
