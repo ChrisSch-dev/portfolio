@@ -11,7 +11,7 @@ export interface TimelineItem {
     title: string;
     company: string;
     description: string;
-    bulletPoints?: string[];
+    bulletPoints: string[];
     technologies: string[];
 }
 
