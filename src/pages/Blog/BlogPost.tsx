@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { githubService, type BlogPost } from '@/lib/github'
+import { formatDate } from '@/lib/formatDate'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type CodeProps = any
@@ -51,14 +52,6 @@ function BlogPostPage() {
         } finally {
             setLoading(false)
         }
-    }
-
-    const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        })
     }
 
     if (loading) {

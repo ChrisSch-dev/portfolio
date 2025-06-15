@@ -12,6 +12,7 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { githubService, type BlogPost } from '@/lib/github'
+import { calculateReadTime } from "@/lib/calculateReadTime"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type CodeProps = any
@@ -105,12 +106,6 @@ function BlogAdmin() {
         } finally {
             setLoading(false)
         }
-    }
-
-    const calculateReadTime = (content: string) => {
-        const wordsPerMinute = 200
-        const wordCount = content.split(/\s+/).length
-        return Math.ceil(wordCount / wordsPerMinute)
     }
 
     const handleSavePost = async () => {

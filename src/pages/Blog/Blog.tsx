@@ -6,6 +6,7 @@ import { Calendar, Clock, User, ArrowLeft, Edit, Sun, Moon, AlertCircle } from '
 import { Link, useNavigate } from 'react-router-dom'
 import InteractiveBackground from '@/components/background/InteractiveBackground'
 import { githubService, type BlogPost } from '@/lib/github'
+import { formatDate } from '@/lib/formatDate'
 
 function Blog() {
     const [posts, setPosts] = useState<BlogPost[]>([])
@@ -38,14 +39,6 @@ function Blog() {
         } finally {
             setLoading(false)
         }
-    }
-
-    const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        })
     }
 
     return (
