@@ -28,6 +28,13 @@ export interface SkillGroup {
 
 export const projects: Project[] = [
     {
+      name: "Kei Pun Church Website",
+      type: "website",
+      status: "active",
+      period: "2025 June ~ Present",
+      description: "Developed the website used by Kei Pun Church. Contains a Blog Section."
+    },
+    {
         name: "EternalGaius Discord Bot",
         type: "bot",
         status: "archived",
@@ -177,7 +184,20 @@ export const timeline: TimelineItem[] = [
             "Mentored junior developers and established coding standards"
         ],
         technologies: ["Discord.js", "PostgreSQL", "Redis", "NodeJS", "Javascript", "Message Broker"]
+    },
+    {
+        period: "2025 June ~ Present",
+        title: "Lead Web Developer",
+        company: "The Church of Christ in China, Kei Pun Church Ltd.",
+        description: "I am responsible for developing and maintaining the Church's Website.",
+        bulletPoints: [
+            "Collaborated with colleagues to develop the site.",
+            "Leaded the Web Dev Team composed of 4 people.",
+            "Designed and implemented responsive and accessible user interfaces."
+        ],
+        technologies: ["Typescript", "React", "Vite", "TailwindCSS", "NodeJS", "Vercel"]
     }
+
 ]
 
 export const skills: SkillGroup[] = [
@@ -231,7 +251,8 @@ export const skills: SkillGroup[] = [
             { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
             { name: "Ubuntu", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-original.svg" },
             { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
-            { name: "RabbitMQ", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" }
+            { name: "RabbitMQ", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" },
+            { name: "Vercel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" }
         ]
     }
 ]
