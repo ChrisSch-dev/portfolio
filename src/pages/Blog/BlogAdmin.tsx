@@ -9,6 +9,7 @@ import { ArrowLeft, Save, Eye, Trash2, Edit, Plus, Moon, Sun, Github, Key, Alert
 import { useNavigate } from 'react-router-dom'
 import InteractiveBackground from '@/components/background/InteractiveBackground'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { githubService, type BlogPost } from '@/lib/github'
@@ -25,7 +26,6 @@ function BlogAdmin() {
     const [darkMode, setDarkMode] = useState(true)
     const [isEditing, setIsEditing] = useState(false)
     const [editingPost, setEditingPost] = useState<BlogPost | null>(null)
-    const [preview, setPreview] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
     const [success, setSuccess] = useState<string | null>(null)
@@ -209,13 +209,11 @@ function BlogAdmin() {
         })
         setEditingPost(null)
         setIsEditing(true)
-        setPreview(false)
     }
 
     const handleCancel = () => {
         setIsEditing(false)
         setEditingPost(null)
-        setPreview(false)
         setFormData({
             title: '',
             content: '',
@@ -413,14 +411,6 @@ function BlogAdmin() {
                                     </h1>
                                     <div className="flex gap-2">
                                         <Button
-                                            variant="outline"
-                                            onClick={() => setPreview(!preview)}
-                                            className="flex items-center gap-2"
-                                        >
-                                            <Eye className="h-4 w-4" />
-                                            {preview ? 'Edit' : 'Preview'}
-                                        </Button>
-                                        <Button
                                             onClick={handleSavePost}
                                             className="flex items-center gap-2"
                                             disabled={loading}
@@ -436,114 +426,124 @@ function BlogAdmin() {
 
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                     <div className="space-y-4">
-                                        {!preview && (
-                                            <>
-                                                <div>
-                                                    <Label htmlFor="title">Title</Label>
-                                                    <Input
-                                                        id="title"
-                                                        value={formData.title}
-                                                        onChange={(e) => setFormData({...formData, title: e.target.value})}
-                                                        placeholder="Enter post title"
-                                                    />
-                                                </div>
+                                        <div>
+                                            <Label htmlFor="title">Title</Label>
+                                            <Input
+                                                id="title"
+                                                value={formData.title}
+                                                onChange={(e) => setFormData({...formData, title: e.target.value})}
+                                                placeholder="Enter post title"
+                                            />
+                                        </div>
 
-                                                <div>
-                                                    <Label htmlFor="excerpt">Excerpt (optional)</Label>
-                                                    <Textarea
-                                                        id="excerpt"
-                                                        value={formData.excerpt}
-                                                        onChange={(e) => setFormData({...formData, excerpt: e.target.value})}
-                                                        placeholder="Brief description of the post"
-                                                        rows={3}
-                                                    />
-                                                </div>
+                                        <div>
+                                            <Label htmlFor="excerpt">Excerpt (optional)</Label>
+                                            <Textarea
+                                                id="excerpt"
+                                                value={formData.excerpt}
+                                                onChange={(e) => setFormData({...formData, excerpt: e.target.value})}
+                                                placeholder="Brief description of the post"
+                                                rows={3}
+                                            />
+                                        </div>
 
-                                                <div className="grid grid-cols-2 gap-4">
-                                                    <div>
-                                                        <Label htmlFor="author">Author</Label>
-                                                        <Input
-                                                            id="author"
-                                                            value={formData.author}
-                                                            onChange={(e) => setFormData({...formData, author: e.target.value})}
-                                                        />
-                                                    </div>
-                                                    <div>
-                                                        <Label htmlFor="tags">Tags (comma separated)</Label>
-                                                        <Input
-                                                            id="tags"
-                                                            value={formData.tags}
-                                                            onChange={(e) => setFormData({...formData, tags: e.target.value})}
-                                                            placeholder="tag1, tag2, tag3"
-                                                        />
-                                                    </div>
-                                                </div>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <Label htmlFor="author">Author</Label>
+                                                <Input
+                                                    id="author"
+                                                    value={formData.author}
+                                                    onChange={(e) => setFormData({...formData, author: e.target.value})}
+                                                />
+                                            </div>
+                                            <div>
+                                                <Label htmlFor="tags">Tags (comma separated)</Label>
+                                                <Input
+                                                    id="tags"
+                                                    value={formData.tags}
+                                                    onChange={(e) => setFormData({...formData, tags: e.target.value})}
+                                                    placeholder="tag1, tag2, tag3"
+                                                />
+                                            </div>
+                                        </div>
 
-                                                <div>
-                                                    <Label htmlFor="content">Content (Markdown supported)</Label>
-                                                    <Textarea
-                                                        id="content"
-                                                        value={formData.content}
-                                                        onChange={(e) => setFormData({...formData, content: e.target.value})}
-                                                        placeholder="Write your post content in Markdown..."
-                                                        rows={20}
-                                                        className="font-mono"
-                                                    />
-                                                </div>
-                                            </>
-                                        )}
+                                        <div>
+                                            <Label htmlFor="content">Content (Markdown supported)</Label>
+                                            <Textarea
+                                                id="content"
+                                                value={formData.content}
+                                                onChange={(e) => setFormData({...formData, content: e.target.value})}
+                                                placeholder="Write your post content in Markdown..."
+                                                rows={20}
+                                                className="font-mono"
+                                            />
+                                        </div>
                                     </div>
 
-                                    {(preview || true) && (
-                                        <div className="lg:border-l lg:pl-6">
-                                            <h3 className="text-lg font-semibold mb-4">Preview</h3>
-                                            <Card>
-                                                <CardHeader>
-                                                    <CardTitle className="text-2xl">
-                                                        {formData.title || 'Untitled Post'}
-                                                    </CardTitle>
-                                                    <CardDescription>
-                                                        {formData.excerpt || 'No excerpt provided'}
-                                                    </CardDescription>
-                                                    <div className="flex flex-wrap gap-2 mt-2">
-                                                        {formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag).map((tag) => (
-                                                            <Badge key={tag} variant="secondary" className="text-xs">
-                                                                {tag}
-                                                            </Badge>
-                                                        ))}
-                                                    </div>
-                                                </CardHeader>
-                                                <CardContent>
-                                                    <div className="prose prose-sm dark:prose-invert max-w-none">
-                                                        <ReactMarkdown
-                                                            components={{
-                                                                code({className, children, ...props}: CodeProps) {
-                                                                    const match = /language-(\w+)/.exec(className || '')
-                                                                    const inline = !match
-                                                                    return !inline && match ? (
-                                                                        <SyntaxHighlighter
-                                                                            style={tomorrow as Record<string, React.CSSProperties>}
-                                                                            language={match[1]}
-                                                                            PreTag="div"
-                                                                            {...props}
-                                                                        >
-                                                                            {String(children).replace(/\n$/, '')}
-                                                                        </SyntaxHighlighter>
-                                                                    ) : (
-                                                                        <code className={className} {...props}>
-                                                                            {children}
-                                                                        </code>
-                                                                    )
-                                                                }
-                                                            }}
-                                                        >
-                                                            {formData.content || 'Start writing your content...'}
-                                                        </ReactMarkdown>
-                                                    </div>
-                                                </CardContent>
-                                            </Card>
-                                        </div>
-                                    )}
+                                    <div className="lg:border-l lg:pl-6">
+                                        <h3 className="text-lg font-semibold mb-4">Preview</h3>
+                                        <Card>
+                                            <CardHeader>
+                                                <CardTitle className="text-2xl">
+                                                    {formData.title || 'Untitled Post'}
+                                                </CardTitle>
+                                                <CardDescription>
+                                                    {formData.excerpt || 'No excerpt provided'}
+                                                </CardDescription>
+                                                <div className="flex flex-wrap gap-2 mt-2">
+                                                    {formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag).map((tag) => (
+                                                        <Badge key={tag} variant="secondary" className="text-xs">
+                                                            {tag}
+                                                        </Badge>
+                                                    ))}
+                                                </div>
+                                            </CardHeader>
+                                            <CardContent>
+                                                <div className="prose prose-sm dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-em:text-foreground prose-code:text-foreground prose-pre:text-foreground prose-a:text-blue-500 prose-blockquote:text-muted-foreground prose-li:text-foreground">
+                                                    <ReactMarkdown
+                                                        remarkPlugins={[remarkGfm]}
+                                                        components={{
+                                                            code({node, inline, className, children, ...props}: CodeProps) {
+                                                                const match = /language-(\w+)/.exec(className || '')
+                                                                return !inline && match ? (
+                                                                    <SyntaxHighlighter
+                                                                        style={tomorrow as Record<string, React.CSSProperties>}
+                                                                        language={match[1]}
+                                                                        PreTag="div"
+                                                                        className="rounded-md"
+                                                                        {...props}
+                                                                    >
+                                                                        {String(children).replace(/\n$/, '')}
+                                                                    </SyntaxHighlighter>
+                                                                ) : (
+                                                                    <code className={`${className} bg-muted px-1 py-0.5 rounded text-sm font-mono`} {...props}>
+                                                                        {children}
+                                                                    </code>
+                                                                )
+                                                            },
+                                                            h1: ({children}) => <h1 className="text-3xl font-bold mt-6 mb-4 text-foreground">{children}</h1>,
+                                                            h2: ({children}) => <h2 className="text-2xl font-semibold mt-5 mb-3 text-foreground">{children}</h2>,
+                                                            h3: ({children}) => <h3 className="text-xl font-medium mt-4 mb-2 text-foreground">{children}</h3>,
+                                                            h4: ({children}) => <h4 className="text-lg font-medium mt-3 mb-2 text-foreground">{children}</h4>,
+                                                            h5: ({children}) => <h5 className="text-base font-medium mt-2 mb-1 text-foreground">{children}</h5>,
+                                                            h6: ({children}) => <h6 className="text-sm font-medium mt-2 mb-1 text-foreground">{children}</h6>,
+                                                            p: ({children}) => <p className="mb-4 text-foreground leading-relaxed">{children}</p>,
+                                                            ul: ({children}) => <ul className="mb-4 ml-6 list-disc text-foreground">{children}</ul>,
+                                                            ol: ({children}) => <ol className="mb-4 ml-6 list-decimal text-foreground">{children}</ol>,
+                                                            li: ({children}) => <li className="mb-1 text-foreground">{children}</li>,
+                                                            blockquote: ({children}) => <blockquote className="border-l-4 border-muted-foreground pl-4 my-4 italic text-muted-foreground">{children}</blockquote>,
+                                                            a: ({children, href}) => <a href={href} className="text-blue-500 hover:text-blue-600 underline" target="_blank" rel="noopener noreferrer">{children}</a>,
+                                                            strong: ({children}) => <strong className="font-semibold text-foreground">{children}</strong>,
+                                                            em: ({children}) => <em className="italic text-foreground">{children}</em>,
+                                                            hr: () => <hr className="my-6 border-border" />,
+                                                        }}
+                                                    >
+                                                        {formData.content || 'Start writing your content...'}
+                                                    </ReactMarkdown>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
                                 </div>
                             </div>
                         ) : (
