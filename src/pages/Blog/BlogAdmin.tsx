@@ -152,7 +152,6 @@ function BlogAdmin() {
             })
             setIsEditing(false)
             setEditingPost(null)
-            setPreview(false)
 
             // Reload posts
             await loadPosts()
