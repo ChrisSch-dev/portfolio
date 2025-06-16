@@ -491,7 +491,7 @@ function Portfolio() {
                             <div className="space-y-4">
                                 <div className="flex items-center justify-center gap-4">
                                     <Mail className="h-5 w-5 text-blue-600"/>
-                                    <span>christsang0913@gmail.com</span>
+                                    <span><a href="mailto:christsang0913@gmail.com">christsang0913@gmail.com</a></span>
                                 </div>
                                 <div className="flex gap-4 justify-center mt-6">
                                     <Button variant="outline" size="icon" asChild>
