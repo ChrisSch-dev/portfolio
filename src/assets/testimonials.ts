@@ -4,7 +4,7 @@ export interface Testimonial {
     position: string;
     company: string;
     content: string;
-    rating?: number;
+    rating: number;
     profilePicture?: string | null | undefined
 }
 

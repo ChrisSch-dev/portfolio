@@ -23,18 +23,6 @@ interface GitHubFile {
     encoding: string
 }
 
-interface GitHubCommit {
-    sha: string
-    commit: {
-        message: string
-        author: {
-            name: string
-            email: string
-            date: string
-        }
-    }
-}
-
 class GitHubService {
     private readonly owner = 'ChrisSch-dev'
     private readonly repo = 'Blog'
