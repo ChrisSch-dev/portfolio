@@ -90,7 +90,7 @@ function Portfolio() {
                      style={{ position: 'fixed' }}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex justify-between items-center h-16">
-                            <div className="font-bold text-xl">ChrisSch.dv</div>
+                            <div className="font-bold text-xl">ChrisSch</div>
 
                             {/* Desktop Navigation */}
                             <div className="hidden md:flex space-x-8">
@@ -162,7 +162,7 @@ function Portfolio() {
                                 className="w-32 h-32 mx-auto mb-8 rounded-full object-cover shadow-lg ring-4 ring-blue-500/20"
                             />
                             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                                Hello, I'm <span className="text-blue-600 dark:text-blue-400">Chris Tsang</span>
+                                Hello 👋, I'm <span className="text-blue-600 dark:text-blue-400">Chris Tsang</span>
                             </h1>
                             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                                 A Back End Developer from Hong Kong passionate about building engaging,
