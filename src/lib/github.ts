@@ -175,7 +175,7 @@ class GitHubService {
     }
 
     private createMarkdownContent(post: BlogPost): string {
-        const frontmatter = [
+        return [
             '---',
             `title: "${post.title}"`,
             `excerpt: "${post.excerpt}"`,
@@ -187,8 +187,6 @@ class GitHubService {
             '',
             post.content
         ].join('\n')
-
-        return frontmatter
     }
 
     async getAllPosts(): Promise<BlogPost[]> {

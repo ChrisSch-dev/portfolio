@@ -1,5 +1,5 @@
 import type React from 'react'
-import { useEffect, useRef, useCallback } from 'react'
+import {useCallback, useEffect, useRef} from 'react'
 import './InteractiveBackground.css'
 
 interface Particle {
@@ -16,10 +16,10 @@ interface InteractiveBackgroundProps {
     darkMode: boolean
 }
 
-const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({ darkMode }) => {
+const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({darkMode}) => {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const particlesRef = useRef<Particle[]>([])
-    const mouseRef = useRef({ x: 0, y: 0 })
+    const mouseRef = useRef({x: 0, y: 0})
     const animationFrameRef = useRef<number>()
 
     const PARTICLE_COUNT = 80
@@ -31,7 +31,7 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({ darkMode 
         const canvas = canvasRef.current
         if (!canvas) return
 
-        particlesRef.current = Array.from({ length: PARTICLE_COUNT }, () => ({
+        particlesRef.current = Array.from({length: PARTICLE_COUNT}, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             vx: (Math.random() - 0.5) * 0.5,
@@ -117,11 +117,10 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({ darkMode 
                 if (distance < CONNECTION_DISTANCE) {
                     const baseOpacity = (CONNECTION_DISTANCE - distance) / CONNECTION_DISTANCE * 0.3
                     const opacity = darkMode ? baseOpacity : baseOpacity * 1.8 // Higher opacity for light mode
-                    const lineColor = darkMode
+
+                    ctx.strokeStyle = darkMode
                         ? `rgba(148, 163, 184, ${opacity})` // slate-400 for dark mode
                         : `rgba(100, 116, 139, ${opacity})` // slate-500 for light mode
-
-                    ctx.strokeStyle = lineColor
                     ctx.lineWidth = 0.5
                     ctx.beginPath()
                     ctx.moveTo(particle.x, particle.y)
