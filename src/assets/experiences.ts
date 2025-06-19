@@ -56,6 +56,13 @@ export const projects: Project[] = [
         description: "Custom scheduling app to handle to keep track of all duty schedule within the church."
     },
     {
+        name: "Freelance Projects",
+        type: "various",
+        status: "completed",
+        period: "2020-2021",
+        description: "300+ commissioned projects including websites and Discord bots"
+    },
+    {
         name: "EternalGaius Discord Bot",
         type: "bot",
         status: "archived",
@@ -82,13 +89,6 @@ export const projects: Project[] = [
         status: "archived",
         period: "2022-2022",
         description: "JavaScript/TypeScript Discord API wrapper alternative to Discord.js"
-    },
-    {
-        name: "Freelance Projects",
-        type: "various",
-        status: "completed",
-        period: "2020-2021",
-        description: "300+ commissioned projects including websites and Discord bots"
     }
 ]
 
