@@ -4,7 +4,9 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 import {Badge} from '@/components/ui/badge'
 import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
 import {ExternalLink, Github, Instagram, Mail, Menu, Moon, Sun, Twitter} from 'lucide-react'
-import { skills, timeline, projects } from '@/assets/experiences'
+import { timeline } from '@/assets/experiences'
+import { skills } from '@/assets/skills.ts'
+import { projects } from '@/assets/projects.ts'
 import { testimonials } from '@/assets/testimonials.ts'
 import { navItems } from '@/components/menu/navItems.ts'
 import { DiscordIcon } from "@/assets/icons/discord.tsx"
