@@ -50,6 +50,34 @@ export const projects: Project[] = [
         description: "A mini-sql software coded in C as part of my journey in learning C. (Project is a very simple version of SQL, and is not suitable for production.)"
     },
     {
+        name: "Note-Taking App",
+        type: "Software",
+        status: "completed",
+        period: "2025 February",
+        description: "A simple note taking app written in Rust for when I was learning Rust."
+    },
+    {
+        name: "api-client",
+        type: "api / software",
+        status: "completed",
+        period: "2025 May",
+        description: "An advanced api client written in Javascript with properly defined Status Code, and auto-routing for newly implemented paths, focusing on ease-to-use and maintainability."
+    },
+    {
+        name: "socket.io Message Broker",
+        type: "software",
+        status: "completed",
+        period: "2024 October",
+        description: "A Message Broker written in Javascript that utilizes socket.io for communication between appplications on a server."
+    },
+    {
+        name: "Point System",
+        type: "bot",
+        status: "completed",
+        period: "2023 July",
+        description: "A simple Discord Bot written in Javascript that tracks points across server members."
+    },
+    {
         name: "EternalGaius Discord Bot",
         type: "bot",
         status: "archived",
