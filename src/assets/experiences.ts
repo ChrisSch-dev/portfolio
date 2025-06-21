@@ -102,7 +102,7 @@ export const timeline: TimelineItem[] = [
     },
     {
         period: "2025 June ~ Present",
-        title: "Lead Web Developer",
+        title: "Lead Web Developer, System Administrator",
         company: "The Church of Christ in China, Kei Pun Church Ltd.",
         description: "I am responsible for developing and maintaining the Church's Website.",
         bulletPoints: [
