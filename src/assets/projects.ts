@@ -43,6 +43,13 @@ export const projects: Project[] = [
         description: "300+ commissioned projects including websites and Discord bots"
     },
     {
+        name: "Mini-SQL",
+        type: "Software",
+        status: "completed",
+        period: "2025 June",
+        description: "A mini-sql software coded in C as part of my journey in learning C. (Project is a very simple version of SQL, and is not suitable for production.)"
+    },
+    {
         name: "EternalGaius Discord Bot",
         type: "bot",
         status: "archived",
