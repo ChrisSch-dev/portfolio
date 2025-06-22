@@ -8,18 +8,18 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        name: "Kei Pun Church Website",
-        type: "website",
-        status: "active",
-        period: "2025 June ~ Present",
-        description: "Developed the website used by Kei Pun Church. Contains a Blog Section."
-    },
-    {
         name: "Epoch Studio - Galaxies",
         type: "bot",
         status: "active",
         period: "2024 August ~ Present",
         description: "A new managing team is now in-charge of Galaxies. With a new direction and new goals in mind."
+    },
+    {
+        name: "Portfolio Website",
+        type: "web-app",
+        status: "active",
+        period: "2025",
+        description: "Personal portfolio showcasing projects and professional experience. You are looking at it now!"
     },
     {
         name: "Church Schedule Management App",
@@ -85,11 +85,11 @@ export const projects: Project[] = [
         description: "A simple Discord Bot written in Javascript that tracks points across server members."
     },
     {
-        name: "Portfolio Website",
-        type: "web-app",
-        status: "archived",
-        period: "2025",
-        description: "Personal portfolio showcasing projects and professional experience. You are looking at it now!"
+        name: "Kei Pun Church Website",
+        type: "website",
+        status: "completed",
+        period: "2025 June",
+        description: "Developed the website used by Kei Pun Church. Contains a Blog Section."
     },
     {
         name: "EternalGaius Discord Bot",
