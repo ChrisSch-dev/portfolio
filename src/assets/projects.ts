@@ -57,6 +57,20 @@ export const projects: Project[] = [
         description: "A simple note taking app written in Rust for when I was learning Rust."
     },
     {
+        name: "Task Manager",
+        type: "software",
+        status: "completed",
+        period: "2025 May",
+        description: "A task manager app that monitors hardware resources consumption, inspired by Windows Task Manager. Made in Rust"
+    },
+    {
+        name: "Budget Tracking App",
+        type: "software",
+        status: "completed",
+        period: "2025 May",
+        description: "A budget tracking app that helps keep track of your spendings. Made in Rust."
+    },
+    {
         name: "api-client",
         type: "api / software",
         status: "completed",
