@@ -22,13 +22,6 @@ export const projects: Project[] = [
         description: "A new managing team is now in-charge of Galaxies. With a new direction and new goals in mind."
     },
     {
-        name: "Portfolio Website",
-        type: "web-app",
-        status: "active",
-        period: "2025",
-        description: "Personal portfolio showcasing projects and professional experience. You are looking at it now!"
-    },
-    {
         name: "Church Schedule Management App",
         type: "web-app",
         status: "completed",
@@ -90,6 +83,13 @@ export const projects: Project[] = [
         status: "completed",
         period: "2023 July",
         description: "A simple Discord Bot written in Javascript that tracks points across server members."
+    },
+    {
+        name: "Portfolio Website",
+        type: "web-app",
+        status: "archived",
+        period: "2025",
+        description: "Personal portfolio showcasing projects and professional experience. You are looking at it now!"
     },
     {
         name: "EternalGaius Discord Bot",
