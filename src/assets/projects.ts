@@ -22,6 +22,13 @@ export const projects: Project[] = [
         description: "Personal portfolio showcasing projects and professional experience. You are looking at it now!"
     },
     {
+        name: "ChrisOS",
+        type: "software",
+        status: "active",
+        period: "2025",
+        description: "An operating system made in C as a hobby/educational experience for me to get into OS Development"
+    },
+    {
         name: "Church Schedule Management App",
         type: "web-app",
         status: "completed",
