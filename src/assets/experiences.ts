@@ -74,7 +74,7 @@ export const timeline: TimelineItem[] = [
         technologies: ["Discord.js", "PostgreSQL", "Redis", "NodeJS", "Javascript", "RabbitMQ"]
     },
     {
-        period: "2024 January ~ 2025 March",
+        period: "2024 January ~ 2025 March [Employee-based Contract]",
         title: "Information and Communication Technology Department Supervisor",
         company: "The Church of Christ in China, Kei Pun Church Ltd.",
         description: "The department is responsible for developing and maintaining digital solutions for church operations and community management.",
@@ -101,7 +101,7 @@ export const timeline: TimelineItem[] = [
         technologies: ["Discord.js", "PostgreSQL", "Redis", "NodeJS", "Javascript", "Message Broker"]
     },
     {
-        period: "2025 June ~ Present",
+        period: "2025 June ~ 2025 July [Commission-based Contract]",
         title: "Lead Web Developer, System Administrator",
         company: "The Church of Christ in China, Kei Pun Church Ltd.",
         description: "I am responsible for developing and maintaining the Church's Website.",
@@ -111,6 +111,18 @@ export const timeline: TimelineItem[] = [
             "Designed and implemented responsive and accessible user interfaces."
         ],
         technologies: ["Typescript", "React", "Vite", "TailwindCSS", "NodeJS", "Vercel"]
+    },
+    {
+        period: "2025 July ~ Present [Volunteer]",
+        title: "Tech Consultant",
+        company: "The Church of Christ in China, Kei Pun Church Ltd.",
+        description: "Tech Consultant, responsible for answering/handling any tech difficulties.",
+        bulletPoints: [
+            "Diagnosed and resolved technical issues across hardware, software, and network systems to ensure smooth operation for church activities and services",
+            "Provided tailored consulting on systems development and digital tools, incorporating technologies like C++, Rust, Kotlin, and database solutions",
+            "Streamlined deployment and maintenance processes using Vercel and modern DevOps practices to support the church’s digital initiatives"
+        ],
+        technologies: ["C", "C++", "Rust", "Kotlin", "Database", "Vercel"]
     }
 
 ]
